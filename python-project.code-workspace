@@ -1,0 +1,106 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.insertFinalNewline": true,
+		"files.trimFinalNewlines": true,
+		"files.trimTrailingWhitespace": true,
+		"files.autoSave": "onFocusChange",
+		"git.autofetch": true,
+		"[jsonc]": {
+			"editor.defaultFormatter": "vscode.json-language-features"
+		},
+		"yaml.format.enable": true,
+		"yaml.completion": true,
+		"yaml.validate": true,
+		"yaml.hover": true,
+		"[yaml]": {
+			"editor.insertSpaces": true,
+			"editor.tabSize": 2,
+			"editor.autoIndent": "keep",
+			"diffEditor.ignoreTrimWhitespace": false,
+			"editor.quickSuggestions": {
+				"other": true,
+				"comments": false,
+				"strings": true
+			},
+			"editor.defaultFormatter": "redhat.vscode-yaml",
+		},
+		"[python]": {
+			"editor.defaultFormatter": "charliermarsh.ruff",
+			"editor.formatOnSave": true,
+			"editor.codeActionsOnSave": {
+				"source.fixAll.ruff": "explicit",
+				"source.organizeImports.ruff": "explicit"
+			}
+		},
+		"python.analysis.extraPaths": [],
+		"python.autoComplete.extraPaths": [],
+		"python.analysis.stubPath": "typings",
+		"python.testing.pytestEnabled": false,
+		"python.testing.unittestEnabled": true,
+		"python.testing.autoTestDiscoverOnSaveEnabled": true,
+		"python.testing.unittestArgs": [
+			"-v",
+			"-s",
+			"./tests",
+			"-p",
+			"test_*.py"
+		],
+	},
+	"extensions": {
+		"recommendations": [
+			"redhat.vscode-yaml",
+			"ms-python.vscode-pylance",
+			"ms-python.python",
+			"ms-python.debugpy",
+			"charliermarsh.ruff",
+			"tamasfe.even-better-toml",
+			"aaron-bond.better-comments",
+			"streetsidesoftware.code-spell-checker"
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [],
+		"compounds": []
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Sync dependencies",
+				"command": "uv",
+				"type": "shell",
+				"args": [
+					"sync"
+				],
+				"problemMatcher": [
+					"$tsc"
+				],
+				"presentation": {
+					"reveal": "always"
+				}
+			},
+			{
+				"label": "Build package",
+				"command": "uv",
+				"type": "shell",
+				"args": [
+					"build"
+				],
+				"problemMatcher": [
+					"$tsc"
+				],
+				"presentation": {
+					"reveal": "always"
+				},
+				"dependsOn": "Sync dependencies",
+				"group": "build"
+			},
+		]
+	}
+}

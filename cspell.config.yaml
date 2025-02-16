@@ -1,0 +1,17 @@
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: "0.2"
+allowCompoundWords: true
+useGitignore: true
+words: []
+dictionaries:
+  - python
+  - python-common
+  - powershell
+  - bash
+  - shellscript
+  - win32
+ignorePaths:
+  - pyproject.toml
+  - .pre-commit-config.yaml
+  - "*.code-workspace"
+  - "*.ui"
